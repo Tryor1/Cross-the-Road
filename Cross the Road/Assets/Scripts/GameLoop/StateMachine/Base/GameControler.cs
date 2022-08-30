@@ -6,11 +6,17 @@ namespace GameLoop
 {
     public class GameControler : MonoBehaviour
     {
+        #region States
+        private MenuState menuState; 
+        #endregion
+
         private BaseState activeState;
 
         private void Start()
         {
+            menuState = new MenuState();
 
+            ChangeState(menuState);
         }
         private void Update()
         {
