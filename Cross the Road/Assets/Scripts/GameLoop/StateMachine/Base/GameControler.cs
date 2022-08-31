@@ -1,3 +1,4 @@
+using InputControl;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,9 +13,12 @@ namespace GameLoop
 
         private BaseState activeState;
 
+        [SerializeField]
+        private GameInput gameInput;
+
         private void Start()
         {
-            menuState = new MenuState();
+            menuState = new MenuState(gameInput);
 
             ChangeState(menuState);
         }
