@@ -1,24 +1,39 @@
 using InputControl;
 using System.Collections;
 using System.Collections.Generic;
+using UI;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace GameLoop
 {
     public class GameControler : MonoBehaviour
     {
         #region States
-        private MenuState menuState; 
+        private MenuState menuState;
+        private GameState gameState;
         #endregion
 
         private BaseState activeState;
 
+        private UnityAction changeToGameState;
+
         [SerializeField]
         private GameInput gameInput;
 
+        #region Views
+        [SerializeField]
+        private MenuView menuView;
+        [SerializeField]
+        private GameView gameView;
+        #endregion
+
         private void Start()
         {
-            menuState = new MenuState(gameInput);
+            changeToGameState += () => ChangeState(gameState);
+
+            menuState = new MenuState(gameInput, changeToGameState, menuView);
+            gameState = new GameState(gameInput, gameView);
 
             ChangeState(menuState);
         }

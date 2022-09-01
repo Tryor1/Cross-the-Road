@@ -13,6 +13,7 @@ namespace InputControl
         Backward,
         Right,
         Left,
+        Any,
     }
 
     public class GameInput : MonoBehaviour
@@ -24,6 +25,7 @@ namespace InputControl
         private UnityAction onBackward;
         private UnityAction onRight;
         private UnityAction onLeft;
+        private UnityAction onAny;
 
         public void AddListener(InputType inputType, UnityAction callback)
         {
@@ -41,6 +43,9 @@ namespace InputControl
                 case InputType.Left:
                     onLeft += callback;
                     break;
+                case InputType.Any:
+                    onAny += callback;
+                    break;
             }
         }
 
@@ -50,6 +55,7 @@ namespace InputControl
             onForward = null;
             onRight = null;
             onLeft = null;
+            onAny = null;
         }
 
         public void OnMoveForward(InputAction.CallbackContext ctx)
@@ -81,6 +87,14 @@ namespace InputControl
             if (ctx.action.WasPerformedThisFrame())
             {
                 onLeft?.Invoke();
+            }
+        }
+        public void OnAny(InputAction.CallbackContext ctx)
+        {
+
+            if (ctx.action.WasPerformedThisFrame())
+            {
+                onAny?.Invoke();
             }
         }
     } 

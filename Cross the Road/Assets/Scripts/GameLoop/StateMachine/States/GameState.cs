@@ -7,32 +7,30 @@ using UnityEngine.Events;
 
 namespace GameLoop
 {
-    public class MenuState : BaseState
+    public class GameState : BaseState
     {
         private GameInput gameInput;
-        private UnityAction changeToGameState;
-        private MenuView menuView;
-        public MenuState(GameInput gameInput, UnityAction changeToGameState, MenuView menuView)
+        private GameView gameView;
+        public GameState(GameInput gameInput, GameView gameView)
         {
             this.gameInput = gameInput;
-            this.changeToGameState = changeToGameState;
-            this.menuView = menuView;
+            this.gameView = gameView;
         }
 
         public override void InitState()
         {
-            menuView.ShowView();
-            gameInput.AddListener(InputType.Any, changeToGameState.Invoke);
+            gameView.ShowView();
+            Debug.Log("It works!");
         }
 
         public override void UpdateState()
         {
-            
+            Debug.Log("Game");
         }
         public override void DisposeState()
         {
             gameInput.ClearInputs();
-            menuView.HideView();
+            gameView.HideView();
         }
     }
 }
