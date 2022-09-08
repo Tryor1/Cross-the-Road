@@ -1,3 +1,4 @@
+using Generation;
 using InputControl;
 using System.Collections;
 using System.Collections.Generic;
@@ -26,13 +27,16 @@ namespace GameLoop
         private MenuView menuView;
         [SerializeField]
         private GameView gameView;
+
+        [SerializeField]
+        private LaneGenerator laneGenerator;
         #endregion
 
         private void Start()
         {
             changeToGameState += () => ChangeState(gameState);
 
-            menuState = new MenuState(gameInput, changeToGameState, menuView);
+            menuState = new MenuState(gameInput, changeToGameState, menuView, laneGenerator);
             gameState = new GameState(gameInput, gameView);
 
             ChangeState(menuState);
