@@ -1,3 +1,4 @@
+using Core;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,11 +9,11 @@ namespace GameData
     public class CarData : ScriptableObject
     {
         [SerializeField]
-        private GameObject prefab;
+        private Car prefab;
         [SerializeField]
         private float baseSpeed;
 
-        public GameObject Prefab => prefab;
+        public Car Prefab => prefab;
         public float BaseSpeed => baseSpeed;
     } 
 }

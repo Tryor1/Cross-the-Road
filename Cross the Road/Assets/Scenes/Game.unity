@@ -430,7 +430,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lanePrefab: {fileID: 169359094740984763, guid: ef3da845b227e42468f5213d6792fe7e, type: 3}
   safeLanePrefab: {fileID: 8572856308204672133, guid: 3ae060d33b66a554bb0317a6c26fb98a, type: 3}
-  lanesParent: {fileID: 916959755}
+  lanesParent: {fileID: 1180893948}
   startPosition: {fileID: 773418458}
   distance: 1.8
 --- !u!1 &416211280

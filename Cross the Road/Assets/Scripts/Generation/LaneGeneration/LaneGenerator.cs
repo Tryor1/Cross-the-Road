@@ -16,7 +16,7 @@ namespace Generation
         [SerializeField]
         private Transform startPosition;
         [SerializeField]
-        private float distance;
+        private float distance = 1.8f;
 
         private int counter;
         /*

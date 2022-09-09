@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68b0ecdc4eac6c742b1db91608f253aa, type: 3}
   m_Name: Van
   m_EditorClassIdentifier: 
-  prefab: {fileID: 5478668947664334736, guid: afbeba4573ac3fc4ba411706c715400d, type: 3}
-  baseSpeed: 1
+  prefab: {fileID: -8031511914293888237, guid: afbeba4573ac3fc4ba411706c715400d, type: 3}
+  baseSpeed: 2.2

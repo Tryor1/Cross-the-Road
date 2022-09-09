@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68b0ecdc4eac6c742b1db91608f253aa, type: 3}
   m_Name: Ambulance
   m_EditorClassIdentifier: 
-  prefab: {fileID: 6422705851150141745, guid: b047d25391c744a4c800bf30beb9f4d1, type: 3}
-  baseSpeed: 1
+  prefab: {fileID: -1710915627099049896, guid: b047d25391c744a4c800bf30beb9f4d1, type: 3}
+  baseSpeed: 2.6

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68b0ecdc4eac6c742b1db91608f253aa, type: 3}
   m_Name: Truck
   m_EditorClassIdentifier: 
-  prefab: {fileID: 5046208577248601733, guid: cb243a555fea5f547ad6eff542e6c19a, type: 3}
+  prefab: {fileID: -5746744181562643099, guid: cb243a555fea5f547ad6eff542e6c19a, type: 3}
   baseSpeed: 1

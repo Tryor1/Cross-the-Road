@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68b0ecdc4eac6c742b1db91608f253aa, type: 3}
   m_Name: Suv
   m_EditorClassIdentifier: 
-  prefab: {fileID: 870708568314957175, guid: 2525825ed6843c74f9e818b557a49e57, type: 3}
-  baseSpeed: 1
+  prefab: {fileID: -3753591065430521622, guid: 2525825ed6843c74f9e818b557a49e57, type: 3}
+  baseSpeed: 2

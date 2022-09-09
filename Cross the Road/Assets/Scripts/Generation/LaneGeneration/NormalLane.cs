@@ -23,7 +23,7 @@ namespace Generation
         {
             while (true)
             {
-                carGenerator.SpawnCar();
+                carGenerator.SpawnCar(transform.parent);
                 yield return new WaitForSeconds(timeBetweenSpawns);
             }
         }

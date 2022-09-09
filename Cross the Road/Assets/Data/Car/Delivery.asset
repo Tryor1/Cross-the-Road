@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68b0ecdc4eac6c742b1db91608f253aa, type: 3}
   m_Name: Delivery
   m_EditorClassIdentifier: 
-  prefab: {fileID: 2428711687131052145, guid: b671a7986ed49384f92f3afa632d6059, type: 3}
-  baseSpeed: 1
+  prefab: {fileID: -612129564246460981, guid: b671a7986ed49384f92f3afa632d6059, type: 3}
+  baseSpeed: 1.5
