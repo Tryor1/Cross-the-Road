@@ -12,7 +12,7 @@ namespace Generation
     {
         private UnityAction onDespawn;
 
-        public override void InitializeLane(CarType type, CarPool<Car> pool, int spawnPointIndex)
+        public override void InitializeLane(CarType type, CarPool<Car> pool, int spawnPointIndex, int difficulty)
         {
 
         }

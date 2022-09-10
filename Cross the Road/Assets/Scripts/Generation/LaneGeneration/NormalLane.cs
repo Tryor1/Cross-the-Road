@@ -20,10 +20,20 @@ namespace Generation
 
         private UnityAction onDespawn;
 
-        public override void InitializeLane(CarType type, CarPool<Car> pool, int spawnPointIndex)
+        private float difficulty;
+
+        public override void InitializeLane(CarType type, CarPool<Car> pool, int spawnPointIndex, int difficulty)
         {
+            this.difficulty = difficulty;
             carGenerator.InitializeGenerator(type, pool, spawnPointIndex);
-            StartCoroutine(GenerateCar(3f));
+            if (this.difficulty == 0f)
+                StartCoroutine(GenerateCar(3f));
+            else if (this.difficulty < 2500f)
+            {
+                StartCoroutine(GenerateCar(3f - this.difficulty / 1000f));
+            }
+            else
+                StartCoroutine(GenerateCar(0.5f));
         }
 
         private IEnumerator GenerateCar(float timeBetweenSpawns)

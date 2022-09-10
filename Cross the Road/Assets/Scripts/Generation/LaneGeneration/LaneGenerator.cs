@@ -57,7 +57,7 @@ namespace Generation
                 lane.SetColor(counter);
                 var randomCar = Random.Range(0, 9);
                 var randomIndex = Random.Range(0, 2);
-                lane.InitializeLane((CarType)randomCar, pool, randomIndex);
+                lane.InitializeLane((CarType)randomCar, pool, randomIndex, counter);
                 lane.OnDespawnAddListener(OnLaneDespawn);
                 counter++;
             }

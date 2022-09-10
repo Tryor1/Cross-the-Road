@@ -10,6 +10,6 @@ namespace Generation
 {
     public abstract class Lane : MonoBehaviour
     {
-        public abstract void InitializeLane(CarType type, CarPool<Car> pool, int spawnPointIndex);
+        public abstract void InitializeLane(CarType type, CarPool<Car> pool, int spawnPointIndex, int difficulty);
     } 
 }
