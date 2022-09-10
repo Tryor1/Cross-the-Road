@@ -22,9 +22,7 @@ namespace Generation
         private float distance = 1.8f;
 
         private int counter;
-        /*
-       ;
-        */
+        
         public void GenerateLevel(int lanesCount, CarPool<Car> pool)
         {
             for(int i=0; i<lanesCount; i++)

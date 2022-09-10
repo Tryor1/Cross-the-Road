@@ -13,9 +13,11 @@ GameObject:
   - component: {fileID: 1442643863344354176}
   - component: {fileID: 1442643863344354177}
   - component: {fileID: 8572856308204672133}
+  - component: {fileID: 5250019593720650202}
+  - component: {fileID: -7652312910919196996}
   m_Layer: 0
   m_Name: SafeLane
-  m_TagString: Untagged
+  m_TagString: Lane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,3 +111,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3a8fc9b8e056784f855fddb80c8a764, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &5250019593720650202
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1442643863344354178}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.220446e-16, z: 10}
+  m_Center: {x: -1, y: 0, z: 0}
+--- !u!54 &-7652312910919196996
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1442643863344354178}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

@@ -46,7 +46,7 @@ namespace Core
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Wall"))
+            if (other.CompareTag("Wall")||other.CompareTag("Border"))
                 onWallCollision.Invoke(carData.CarType, this);
         }
     }

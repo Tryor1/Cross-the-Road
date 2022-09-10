@@ -16,13 +16,15 @@ namespace GameLoop
         private PlayerMovement playerMovement;
         private LaneGenerator laneGenerator;
         private CarStorage carStorage;
-        public GameState(GameInput gameInput, GameView gameView, PlayerMovement playerMovement, LaneGenerator laneGenerator, CarStorage carStorage)
+        private CameraMovement cameraMovement;
+        public GameState(GameInput gameInput, GameView gameView, PlayerMovement playerMovement, LaneGenerator laneGenerator, CarStorage carStorage, CameraMovement cameraMovement)
         {
             this.gameInput = gameInput;
             this.gameView = gameView;
             this.playerMovement = playerMovement;
             this.laneGenerator = laneGenerator;
             this.carStorage = carStorage;
+            this.cameraMovement = cameraMovement;
         }
 
         public override void InitState()
@@ -36,7 +38,7 @@ namespace GameLoop
 
         public override void UpdateState()
         {
-
+            cameraMovement.MoveCamera();
         }
         public override void DisposeState()
         {

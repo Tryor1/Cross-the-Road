@@ -39,12 +39,15 @@ namespace GameLoop
         [SerializeField]
         private PlayerMovement playerMovement;
 
+        [SerializeField]
+        private CameraMovement cameraMovement;
+
         private void Start()
         {
             changeToGameState += () => ChangeState(gameState);
 
             menuState = new MenuState(gameInput, changeToGameState, menuView, laneGenerator, carStorage);
-            gameState = new GameState(gameInput, gameView, playerMovement, laneGenerator, carStorage);
+            gameState = new GameState(gameInput, gameView, playerMovement, laneGenerator, carStorage, cameraMovement);
 
             ChangeState(menuState);
         }
