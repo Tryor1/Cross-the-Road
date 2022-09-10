@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Core
 {
-    public class PlayerMovement : MonoBehaviour
+    public class PlayerControler : MonoBehaviour
     {
         [SerializeField]
         private float animationSpeed;
@@ -50,7 +50,7 @@ namespace Core
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Wall") || other.CompareTag("Border"))
-                Debug.Log("You died");
+                Application.LoadLevel(0);
         }
     } 
 }

@@ -2,6 +2,7 @@ using Core;
 using Data;
 using GameData;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using Utils;
 using Random = UnityEngine.Random;
@@ -37,6 +38,8 @@ namespace Generation
         private CarPool<Car> pool;
         private int spawnPointIndex;
 
+        private List<Car> spawnedCars = new List<Car>();
+
         public void InitializeGenerator(CarType type, CarPool<Car> pool, int index)
         {
             carType = type;
@@ -46,6 +49,7 @@ namespace Generation
 
         public void ReturnToPool(CarType type,Car car)
         {
+            spawnedCars.Remove(car);
             pool.ReturnToPool(type, car);
         }
 
@@ -57,6 +61,18 @@ namespace Generation
             obj.transform.position = spawnPoints[spawnPointIndex].spawnPositionTransform.position;
             obj.transform.rotation = spawnPoints[spawnPointIndex].spawnPositionTransform.rotation;
             obj.StartMovement(spawnPoints[spawnPointIndex].GetDirection(), obj.GetSpeed());
+            spawnedCars.Add(obj);
+        }
+
+        public void DespawnAllCars()
+        {
+            if (spawnedCars.Count > 0)
+            {
+                for (int i = 0; i < spawnedCars.Count; i++)
+                {
+                    pool.ReturnToPool(carType, spawnedCars[i]);
+                } 
+            }
         }
     } 
 }

@@ -37,7 +37,7 @@ namespace GameLoop
         private CarStorage carStorage;
 
         [SerializeField]
-        private PlayerMovement playerMovement;
+        private PlayerControler playerMovement;
 
         [SerializeField]
         private CameraMovement cameraMovement;

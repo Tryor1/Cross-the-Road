@@ -13,11 +13,11 @@ namespace GameLoop
     {
         private GameInput gameInput;
         private GameView gameView;
-        private PlayerMovement playerMovement;
+        private PlayerControler playerMovement;
         private LaneGenerator laneGenerator;
         private CarStorage carStorage;
         private CameraMovement cameraMovement;
-        public GameState(GameInput gameInput, GameView gameView, PlayerMovement playerMovement, LaneGenerator laneGenerator, CarStorage carStorage, CameraMovement cameraMovement)
+        public GameState(GameInput gameInput, GameView gameView, PlayerControler playerMovement, LaneGenerator laneGenerator, CarStorage carStorage, CameraMovement cameraMovement)
         {
             this.gameInput = gameInput;
             this.gameView = gameView;

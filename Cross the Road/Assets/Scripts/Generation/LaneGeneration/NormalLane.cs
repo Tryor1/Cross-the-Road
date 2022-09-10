@@ -3,6 +3,7 @@ using Data;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using Utils;
 
 namespace Generation
@@ -16,6 +17,8 @@ namespace Generation
 
         [SerializeField] private Color color1;
         [SerializeField] private Color color2;
+
+        private UnityAction onDespawn;
 
         public override void InitializeLane(CarType type, CarPool<Car> pool, int spawnPointIndex)
         {
@@ -31,6 +34,7 @@ namespace Generation
                 yield return new WaitForSeconds(timeBetweenSpawns);
             }
         }
+
         public void SetColor(int count)
         {
             if (count % 2 == 0)
@@ -40,6 +44,22 @@ namespace Generation
             else
             {
                 meshRenderer.material.color = color2;
+            }
+        }
+
+        public void OnDespawnAddListener(UnityAction callback)
+        {
+            onDespawn = callback;
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag("Border"))
+            {
+                StopAllCoroutines();
+                carGenerator.DespawnAllCars();
+                onDespawn.Invoke();
+                Destroy(this.gameObject);
             }
         }
     } 

@@ -22,10 +22,20 @@ namespace Generation
         private float distance = 1.8f;
 
         private int counter;
+        private CarPool<Car> pool;
         
         public void GenerateLevel(int lanesCount, CarPool<Car> pool)
         {
-            for(int i=0; i<lanesCount; i++)
+            this.pool = pool;
+
+            for (int i = 1; i < 12; i++)
+            {
+                var safeLane = Instantiate(safeLanePrefab, lanesParent);
+                safeLane.transform.localPosition = startPosition.localPosition + Vector3.right * distance * -i;
+                safeLane.OnDespawnAddListener(OnLaneDespawn); 
+            }
+
+            for (int i=0; i<lanesCount; i++)
             {
                 GenerateLane(pool);
             }
@@ -35,9 +45,10 @@ namespace Generation
         {
             if (counter % 5 == 4)
             {
-                var startLane = Instantiate(safeLanePrefab, lanesParent);
-                startLane.transform.localPosition = startPosition.localPosition + Vector3.right * distance * counter;
+                var safeLane = Instantiate(safeLanePrefab, lanesParent);
+                safeLane.transform.localPosition = startPosition.localPosition + Vector3.right * distance * counter;
                 counter++;
+                safeLane.OnDespawnAddListener(OnLaneDespawn);
             }
             else
             {
@@ -47,8 +58,14 @@ namespace Generation
                 var randomCar = Random.Range(0, 9);
                 var randomIndex = Random.Range(0, 2);
                 lane.InitializeLane((CarType)randomCar, pool, randomIndex);
+                lane.OnDespawnAddListener(OnLaneDespawn);
                 counter++;
             }
+        }
+
+        public void OnLaneDespawn()
+        {
+            GenerateLane(pool);
         }
     } 
 }
