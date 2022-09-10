@@ -1,6 +1,9 @@
+using Core;
+using Data;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utils;
 
 namespace Generation
 {
@@ -14,8 +17,9 @@ namespace Generation
         [SerializeField] private Color color1;
         [SerializeField] private Color color2;
 
-        public override void InitializeLane()
+        public override void InitializeLane(CarType type, CarPool<Car> pool, int spawnPointIndex)
         {
+            carGenerator.InitializeGenerator(type, pool, spawnPointIndex);
             StartCoroutine(GenerateCar(3f));
         }
 

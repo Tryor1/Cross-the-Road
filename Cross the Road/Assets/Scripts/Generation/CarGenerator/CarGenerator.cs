@@ -1,6 +1,9 @@
+using Core;
+using Data;
 using GameData;
 using System;
 using UnityEngine;
+using Utils;
 using Random = UnityEngine.Random;
 
 namespace Generation
@@ -27,20 +30,33 @@ namespace Generation
     }
     public class CarGenerator : MonoBehaviour
     {
-        [SerializeField] private SpawnPoint[] spawnPoints;
-        [SerializeField] private CarData[] cars;
+        [SerializeField]
+        private SpawnPoint[] spawnPoints;
+
+        private CarType carType;
+        private CarPool<Car> pool;
+        private int spawnPointIndex;
+
+        public void InitializeGenerator(CarType type, CarPool<Car> pool, int index)
+        {
+            carType = type;
+            this.pool = pool;
+            spawnPointIndex = index;
+        }
+
+        public void ReturnToPool(CarType type,Car car)
+        {
+            pool.ReturnToPool(type, car);
+        }
 
         public void SpawnCar(Transform parent)
         {
-            var randomIndex = Random.Range(0, cars.Length);
-            var randomSpawn = Random.Range(0, spawnPoints.Length);
-            var carToInstantiate = cars[randomIndex];
-
-            var obj = Instantiate(carToInstantiate.Prefab);
+            var obj = pool.GetFromPool(carType);
+            obj.OnWallCallisionAddListener(ReturnToPool);
             obj.transform.SetParent(parent);
-            obj.StartMovement(spawnPoints[randomSpawn].GetDirection(), carToInstantiate.BaseSpeed);
-            obj.transform.position = spawnPoints[randomSpawn].spawnPositionTransform.position;
-            obj.transform.rotation = spawnPoints[randomSpawn].spawnPositionTransform.rotation;
+            obj.transform.position = spawnPoints[spawnPointIndex].spawnPositionTransform.position;
+            obj.transform.rotation = spawnPoints[spawnPointIndex].spawnPositionTransform.rotation;
+            obj.StartMovement(spawnPoints[spawnPointIndex].GetDirection(), obj.GetSpeed());
         }
     } 
 }

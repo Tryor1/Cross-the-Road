@@ -27,16 +27,19 @@ namespace GameLoop
         private MenuView menuView;
         [SerializeField]
         private GameView gameView;
+        #endregion
 
         [SerializeField]
         private LaneGenerator laneGenerator;
-        #endregion
+
+        [SerializeField]
+        private CarStorage carStorage;
 
         private void Start()
         {
             changeToGameState += () => ChangeState(gameState);
 
-            menuState = new MenuState(gameInput, changeToGameState, menuView, laneGenerator);
+            menuState = new MenuState(gameInput, changeToGameState, menuView, laneGenerator, carStorage);
             gameState = new GameState(gameInput, gameView);
 
             ChangeState(menuState);

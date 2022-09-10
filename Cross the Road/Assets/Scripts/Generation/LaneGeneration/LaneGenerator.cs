@@ -1,6 +1,9 @@
+using Core;
+using Data;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utils;
 
 namespace Generation
 {
@@ -23,20 +26,22 @@ namespace Generation
         var startLane = Instantiate(safeLanePrefab, lanesParent);
         startLane.transform.localPosition = startPosition.localPosition + Vector3.right* distance * -1;
         */
-        public void GenerateLevel(int lanesCount)
+        public void GenerateLevel(int lanesCount, CarPool<Car> pool)
         {
             for(int i=0; i<lanesCount; i++)
             {
-                GenerateLane();
+                GenerateLane(pool);
             }
         }
 
-        public void GenerateLane()
+        public void GenerateLane(CarPool<Car> pool)
         {
             var lane = Instantiate(lanePrefab, lanesParent);
             lane.transform.localPosition = startPosition.localPosition + Vector3.right * distance * counter;
             lane.SetColor(counter);
-            lane.InitializeLane();
+            var randomCar = Random.Range(0, 9);
+            var randomIndex = Random.Range(0, 2);
+            lane.InitializeLane((CarType) randomCar, pool, randomIndex);
             counter++;
         }
     } 

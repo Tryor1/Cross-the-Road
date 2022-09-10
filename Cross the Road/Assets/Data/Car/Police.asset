@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68b0ecdc4eac6c742b1db91608f253aa, type: 3}
   m_Name: Police
   m_EditorClassIdentifier: 
-  prefab: {fileID: -2371181237035715075, guid: 438598fdd804df7499c906a60f1b8293, type: 3}
-  baseSpeed: 2.8
+  baseSpeed: 980
+  carType: 4

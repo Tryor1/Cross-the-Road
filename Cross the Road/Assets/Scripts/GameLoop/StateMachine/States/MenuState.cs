@@ -14,19 +14,22 @@ namespace GameLoop
         private UnityAction changeToGameState;
         private MenuView menuView;
         private LaneGenerator laneGenerator;
-        public MenuState(GameInput gameInput, UnityAction changeToGameState, MenuView menuView, LaneGenerator laneGenerator)
+        private CarStorage carStorage;
+        public MenuState(GameInput gameInput, UnityAction changeToGameState, MenuView menuView, LaneGenerator laneGenerator, CarStorage carStorage)
         {
             this.gameInput = gameInput;
             this.changeToGameState = changeToGameState;
             this.menuView = menuView;
             this.laneGenerator = laneGenerator;
+            this.carStorage = carStorage;
         }
 
         public override void InitState()
         {
             menuView.ShowView();
+            carStorage.InitializeStorage();
             gameInput.AddListener(InputType.Any, changeToGameState.Invoke);
-            laneGenerator.GenerateLevel(20);
+            laneGenerator.GenerateLevel(20, carStorage.CarsPool);
         }
 
         public override void UpdateState()

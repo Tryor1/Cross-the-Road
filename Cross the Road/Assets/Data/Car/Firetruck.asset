@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68b0ecdc4eac6c742b1db91608f253aa, type: 3}
   m_Name: Firetruck
   m_EditorClassIdentifier: 
-  prefab: {fileID: -3033521266893861300, guid: 71845a72a769b7f40a359aed5e0f6e15, type: 3}
-  baseSpeed: 2.3
+  baseSpeed: 930
+  carType: 2

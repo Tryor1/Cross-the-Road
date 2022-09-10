@@ -333,6 +333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e62c2fd32f2f5e24ebb6abdab8e79bec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  carData: {fileID: 11400000, guid: 7d44390f8cef88843b42a946dcc2b921, type: 2}
   rigidbody: {fileID: 2897823720444007221}
 --- !u!1 &2623092831358751148
 GameObject:
