@@ -23,8 +23,7 @@ namespace Generation
 
         private int counter;
         /*
-        var startLane = Instantiate(safeLanePrefab, lanesParent);
-        startLane.transform.localPosition = startPosition.localPosition + Vector3.right* distance * -1;
+       ;
         */
         public void GenerateLevel(int lanesCount, CarPool<Car> pool)
         {
@@ -36,13 +35,22 @@ namespace Generation
 
         public void GenerateLane(CarPool<Car> pool)
         {
-            var lane = Instantiate(lanePrefab, lanesParent);
-            lane.transform.localPosition = startPosition.localPosition + Vector3.right * distance * counter;
-            lane.SetColor(counter);
-            var randomCar = Random.Range(0, 9);
-            var randomIndex = Random.Range(0, 2);
-            lane.InitializeLane((CarType) randomCar, pool, randomIndex);
-            counter++;
+            if (counter % 5 == 4)
+            {
+                var startLane = Instantiate(safeLanePrefab, lanesParent);
+                startLane.transform.localPosition = startPosition.localPosition + Vector3.right * distance * counter;
+                counter++;
+            }
+            else
+            {
+                var lane = Instantiate(lanePrefab, lanesParent);
+                lane.transform.localPosition = startPosition.localPosition + Vector3.right * distance * counter;
+                lane.SetColor(counter);
+                var randomCar = Random.Range(0, 9);
+                var randomIndex = Random.Range(0, 2);
+                lane.InitializeLane((CarType)randomCar, pool, randomIndex);
+                counter++;
+            }
         }
     } 
 }

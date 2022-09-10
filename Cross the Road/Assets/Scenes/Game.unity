@@ -232,6 +232,7 @@ MonoBehaviour:
   gameView: {fileID: 955043208}
   laneGenerator: {fileID: 375133279}
   carStorage: {fileID: 1421755518}
+  playerMovement: {fileID: 1023360299}
 --- !u!4 &200878246
 Transform:
   m_ObjectHideFlags: 0
@@ -1586,9 +1587,10 @@ GameObject:
   - component: {fileID: 1023360297}
   - component: {fileID: 1023360296}
   - component: {fileID: 1023360295}
+  - component: {fileID: 1023360299}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1669,6 +1671,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1023360299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023360294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 870e74d858eae504392aa167081acf1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1180893947
 GameObject:
   m_ObjectHideFlags: 0

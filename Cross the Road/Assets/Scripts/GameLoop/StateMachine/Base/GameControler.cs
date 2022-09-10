@@ -1,3 +1,4 @@
+using Core;
 using Generation;
 using InputControl;
 using System.Collections;
@@ -35,12 +36,15 @@ namespace GameLoop
         [SerializeField]
         private CarStorage carStorage;
 
+        [SerializeField]
+        private PlayerMovement playerMovement;
+
         private void Start()
         {
             changeToGameState += () => ChangeState(gameState);
 
             menuState = new MenuState(gameInput, changeToGameState, menuView, laneGenerator, carStorage);
-            gameState = new GameState(gameInput, gameView);
+            gameState = new GameState(gameInput, gameView, playerMovement, laneGenerator, carStorage);
 
             ChangeState(menuState);
         }
